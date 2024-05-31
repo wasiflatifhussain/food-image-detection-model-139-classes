@@ -1,3 +1,4 @@
+import argparse
 import torch
 from PIL import Image
 from torchvision import transforms
@@ -10,16 +11,12 @@ from torchvision import models
 from torchvision import transforms
 from PIL import Image
 
-
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
-import os
 
 class Label_encoder:
     def __init__(self, labels):
         labels = list(set(labels))
-        self.labels = {label: idx for idx, label in enumerate(classes)}
-        # maybe shud be: self.labels = {label: idx for idx, label in enumerate(labels)} ??
+        self.labels = {label: idx for idx, label in enumerate(labels)}
 
     def get_label(self, idx):
         return list(self.labels.keys())[idx]
@@ -52,23 +49,29 @@ def classify_image(image_path, model, label_encoder, device):
 
     return predicted_label
 
-classes = open("./food-101-tester/meta/classes.txt", 'r').read().splitlines()
-label_encoder = Label_encoder(classes)
-# Load the saved model and label encoder
-model = models.densenet201(weights=None)
-classifier = nn.Sequential(
-    nn.Linear(1920, 1024),
-    nn.LeakyReLU(),
-    nn.Linear(1024, 139),
-)
-model.classifier = classifier
-model.load_state_dict(torch.load("saved_model_139_class.pth", map_location=device))
-model.to(device)
-model.eval()
+if __name__ == "__main__":
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(description="Image classification inference")
+    parser.add_argument("image_path", type=str, help="Path to the input image")
+    parser.add_argument("model_path", type=str, help="Path to the saved model")
+    args = parser.parse_args()
 
+    # Load classes
+    classes = open("./food-101-tester/meta/classes.txt", 'r').read().splitlines()
+    label_encoder = Label_encoder(classes)
 
+    # Load the saved model and label encoder
+    model = models.densenet201(weights=None)
+    classifier = nn.Sequential(
+        nn.Linear(1920, 1024),
+        nn.LeakyReLU(),
+        nn.Linear(1024, 139),
+    )
+    model.classifier = classifier
+    model.load_state_dict(torch.load(args.model_path, map_location=device))
+    model.to(device)
+    model.eval()
 
-# Classify an image
-image_path = "zgz.jpeg"  # Replace with the path to your image
-predicted_label = classify_image(image_path, model, label_encoder, device)
-print("Predicted Label:", predicted_label)
+    # Classify the image
+    predicted_label = classify_image(args.image_path, model, label_encoder, device)
+    print("Predicted Label:", predicted_label)

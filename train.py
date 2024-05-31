@@ -302,14 +302,12 @@ model, history = train(model, train_loader, test_loader, optimizer, loss_fn, num
 evaluate(model,test_loader)
 
 #This line of code saves the best model's state dictionary (or parameters) from the training history to a file named solution.pth.
-torch.save(history['best_model'], "./solution_139_bs-256_ep-20_lr-0.0002.pth")
+# torch.save(history['best_model'], "./solution_139_bs-256_ep-20_lr-0.0002.pth")
 
-
-
-if os.path.exists("./solution.pth"):
-    print("solution file exists in the current directory.")
-else:
-    print("solution file does not exist in the current directory.")
+# if os.path.exists("./solution.pth"):
+#     print("solution file exists in the current directory.")
+# else:
+#     print("solution file does not exist in the current directory.")
 
 
 torch.save(model.state_dict(), 'saved_model_139_bs-256_ep-20_lr-0.0002.pth')
