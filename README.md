@@ -31,10 +31,10 @@ pip install -r requirements.txt
 
 Run an inference an image to check model performance:
 ```
-python inference.py <image_path> <model_path>
+python inference.py <image_path> <state_dictionary_pth_file>
 ```
 
 Example of an inference:
 ```
-python inference.py ./zgz.jpeg ./saved_model_139_class.pth
+python inference.py ./zgz.jpeg ./saved_model_dictionary_139_class.pth
 ```
