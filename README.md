@@ -19,5 +19,5 @@ Upon training completion, the model undergoes evaluation using the test dataset.
 To install the required dependencies, you can use `pip`. First, clone the repository:
 
 ```bash
-git clone https://github.com/your_username/food-139-classification.git
-cd food-139-classification
+git clone https://github.com/wasiflatifhussain/food-image-detection-model-139-classes.git
+cd food-image-detection-model-139-classes ```
