@@ -20,4 +20,21 @@ To install the required dependencies, you can use `pip`. First, clone the reposi
 
 ```bash
 git clone https://github.com/wasiflatifhussain/food-image-detection-model-139-classes.git
-cd food-image-detection-model-139-classes ```
+cd food-image-detection-model-139-classes
+```
+
+To install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run an inference an image to check model performance:
+```
+python inference.py <image_path> <model_path>
+```
+
+Example of an inference:
+```
+python inference.py ./zgz.jpeg ./saved_model_139_class.pth
+```
