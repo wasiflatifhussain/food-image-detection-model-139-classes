@@ -29,6 +29,19 @@ To install the dependencies:
 pip install -r requirements.txt
 ```
 
+### Training Technique
+Adjust the following parameters to train:
+- Learning Rate, lr
+- Batch Size, batch_size
+- Number of iterations/epochs, num_epochs
+- File Name, save_file_name
+
+After adjusting the following parameters in the train.py file, run the following command:
+```
+python train.py
+```
+
+### Inference Technique
 Run an inference an image to check model performance:
 ```
 python inference.py <image_path> <state_dictionary_pth_file>
