@@ -4,6 +4,20 @@ Training a convolutional neural network (CNN) model for image classification usi
 ### Datasets used:
 This project combines classes from the Food-101 dataset and the Food-2k dataset, as well as other images from online resources to increase the dataset for each classes. The Food-2k dataset contained multiple duplicate images and classes and incorrect classifications. Hence, as part of this project, I worked on collecting unique data classes from the Food-2k dataset, combining common/similar classes to make superclasses that could be used to identify a category of food. The work involved cleaning data, summarizing dataset classes, as well as adding more images for smaller classes to increase the volume of data for each data classes and to bring consistency to the dataset size for each data classes.
 
+The dataset can be downloaded from the google drive link here: https://drive.google.com/file/d/1cP0ba1wjhiid-IjJQ29EsTFFteBQoylw/view?usp=sharing
+
+Download and extract the zip folder and place it in the same directory as the rest of the code files.
+#### To extract the zip file:
+
+For Windows:
+```
+tar -xf food-101-tester.zip
+```
+
+For Mac:
+```
+unzip food-101-tester.zip
+```
 
 ### Training and Architecture:
 This code is for training a convolutional neural network (CNN) model for image classification using transfer learning with the DenseNet-201 architecture. The DenseNet-201 model is pre-trained on the ImageNet dataset, and the final fully connected layer is replaced with a new one for 139 classes of food items.
