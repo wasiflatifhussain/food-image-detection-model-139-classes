@@ -309,8 +309,8 @@ evaluate(model,test_loader)
 # else:
 #     print("solution file does not exist in the current directory.")
 
-
-torch.save(model.state_dict(), 'saved_model_139_bs-256_ep-20_lr-0.0002.pth')
+save_file_name = 'saved_model_139_bs-256_ep-20_lr-0.0002.pth'
+torch.save(model.state_dict(), save_file_name)
 
 
 # bs-512_ep-15 lr-0.001 : performance 92.xx %
