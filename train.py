@@ -317,5 +317,7 @@ torch.save(model.state_dict(), save_file_name)
 # bs-256 ep-10 lr-0.001 : performance 93.xx % [train again to verify]
 # bs-256_ep-15_lr-0.0005 : performance 93.04 %
 # bs-256_ep-20_lr-0.0002 : performance 93.21%
+# bs-512_ep-20_lr-0.0002 : performance 92.xx %
+# bs-256_ep-30_lr-0.0002 : performance 93.72% = saved_model_139_dictionary_139_class_best.pth
 
 
